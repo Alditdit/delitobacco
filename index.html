@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deli Nusantara Tobacco | Authentic Marvelous Taste Reborn</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#15322E',     // Deep Emerald Green
+                        'brand-gold': '#E2C772',     // Luxury Gold
+                        'brand-dark-deep': '#0F2622', // Variasi gelap
+                        'brand-gold-light': '#F1DFA8', // Emas terang
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        display: ['"Cinzel"', 'serif'], 
+                        sans: ['"Lato"', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(21, 50, 46, 0.7), rgba(21, 50, 46, 0.9)), url('https://images.unsplash.com/photo-1572295679366-23114d59a721?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .gold-text-gradient {
+            background: linear-gradient(to right, #E2C772, #F1DFA8, #E2C772);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .smoke-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://raw.githubusercontent.com/soju22/codepen-assets/main/smoke.png');
+            opacity: 0.1;
+            mix-blend-mode: screen;
+            animation: smoke 20s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes smoke {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 0; }
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #15322E; }
+        ::-webkit-scrollbar-thumb { background: #E2C772; border-radius: 4px; }
+    </style>
+</head>
+<body class="font-sans text-gray-300 bg-brand-dark antialiased selection:bg-brand-gold selection:text-brand-dark">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 bg-brand-dark/90 backdrop-blur-md border-b border-brand-gold/10 py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 border border-brand-gold flex items-center justify-center rounded-sm bg-brand-dark group-hover:bg-brand-gold transition-colors duration-500">
+                    <span class="font-display font-bold text-brand-gold text-xl group-hover:text-brand-dark transition-colors duration-500">D</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display text-lg font-bold text-white tracking-widest leading-none">DELI NUSANTARA</span>
+                    <span class="text-[9px] tracking-[0.2em] text-brand-gold uppercase mt-1">By PTPN I Regional 1</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu (Updated Links) -->
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="index.html" class="text-xs font-bold text-gray-300 hover:text-brand-gold transition-colors uppercase tracking-[0.15em]">Beranda</a>
+                <a href="products.html" class="text-xs font-bold text-gray-300 hover:text-brand-gold transition-colors uppercase tracking-[0.15em]">Produk</a>
+                <a href="tentangkami.html" class="text-xs font-bold text-gray-300 hover:text-brand-gold transition-colors uppercase tracking-[0.15em]">Tentang Kami</a>
+                <a href="artikel.html" class="text-xs font-bold text-gray-300 hover:text-brand-gold transition-colors uppercase tracking-[0.15em]">Artikel</a>
+                <a href="contact.html" class="px-6 py-2 border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-brand-dark transition-all duration-500 text-xs font-bold uppercase tracking-widest">
+                    Hubungi Kami
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden focus:outline-none text-brand-gold">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-brand-dark border-b border-brand-gold/20 shadow-2xl md:hidden flex flex-col items-center py-8 space-y-6">
+              <a href="index.html" class="text-white hover:text-brand-gold font-display uppercase tracking-widest">Beranda</a>
+            <a href="products.html" class="text-white hover:text-brand-gold font-display uppercase tracking-widest">Produk</a>
+            <a href="tentangkami.html"text-white hover:text-brand-gold font-display uppercase tracking-widest">Tentang Kami</a>
+            <a href="artikel.html" class="text-white hover:text-brand-gold font-display uppercase tracking-widest">Artikel</a>
+            <a href="contact.html" class="text-brand-gold font-bold uppercase tracking-widest">Hubungi Kami</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="smoke-overlay"></div>
+        
+        <div class="container mx-auto px-6 relative z-10 text-center pt-20">
+            <div class="mb-6 opacity-0 animate-[fadeIn_1s_ease-out_forwards]">
+                <span class="text-xs md:text-sm uppercase tracking-[0.4em] text-brand-gold border-b border-brand-gold pb-2">Premium Hand-Rolled Cigars</span>
+            </div>
+            
+            <h1 class="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight text-white opacity-0 animate-[fadeIn_1s_ease-out_0.5s_forwards]">
+                Authentic <br/>
+                <span class="gold-text-gradient italic font-serif">Marvelous Taste</span> <br/>
+                Reborn
+            </h1>
+            
+            <p class="text-sm md:text-base text-gray-200 mb-12 max-w-xl mx-auto font-light leading-loose tracking-wide opacity-0 animate-[fadeIn_1s_ease-out_1s_forwards]">
+                Mahakarya dari PT Perkebunan Nusantara I. Mengembalikan kejayaan Tembakau Deli legendaris ke dalam bentuk cerutu premium berkelas dunia.
+            </p>
+            
+            <!-- Hero Buttons -->
+            <div class="flex flex-col md:flex-row gap-6 justify-center opacity-0 animate-[fadeIn_1s_ease-out_1.5s_forwards]">
+                <a href="#collection" class="group relative px-10 py-4 bg-brand-gold text-brand-dark font-bold text-sm tracking-widest uppercase overflow-hidden transition-all hover:bg-white hover:text-brand-dark shadow-[0_0_20px_rgba(226,199,114,0.3)]">
+                    <span class="relative z-10">Lihat Produk</span>
+                </a>
+                <a href="#heritage" class="px-10 py-4 border border-brand-gold/30 text-white font-bold text-sm tracking-widest uppercase hover:border-brand-gold hover:text-brand-gold transition-colors">
+                    Tentang Kami
+                </a>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-brand-dark to-transparent"></div>
+    </section>
+
+    <!-- DESKTOP QUICK NAVIGATION (4 Column CTA Grid) -->
+    <section class="hidden lg:grid grid-cols-4 w-full border-b border-brand-gold/10">
+        <!-- 1. Product -->
+        <a href="#collection" class="group relative h-48 overflow-hidden border-r border-brand-gold/10 block">
+            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1626154622944-77292a439284?q=80&w=600')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"></div>
+            <div class="absolute inset-0 bg-brand-dark/80 group-hover:bg-brand-dark/60 transition-colors duration-500"></div>
+            <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-4">
+                <i data-lucide="package" class="w-8 h-8 text-brand-gold mb-3 group-hover:-translate-y-2 transition-transform"></i>
+                <h3 class="font-display text-white text-lg tracking-widest group-hover:text-brand-gold transition-colors">PRODUK</h3>
+                <span class="text-[10px] text-gray-400 uppercase tracking-[0.2em] mt-2 opacity-0 group-hover:opacity-100 transition-opacity">Koleksi Eksklusif</span>
+            </div>
+        </a>
+
+        <!-- 2. About Us -->
+        <a href="#heritage" class="group relative h-48 overflow-hidden border-r border-brand-gold/10 block">
+            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1533658296068-07e37604169b?q=80&w=600')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"></div>
+            <div class="absolute inset-0 bg-brand-dark/80 group-hover:bg-brand-dark/60 transition-colors duration-500"></div>
+            <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-4">
+                <i data-lucide="history" class="w-8 h-8 text-brand-gold mb-3 group-hover:-translate-y-2 transition-transform"></i>
+                <h3 class="font-display text-white text-lg tracking-widest group-hover:text-brand-gold transition-colors">TENTANG KAMI</h3>
+                <span class="text-[10px] text-gray-400 uppercase tracking-[0.2em] mt-2 opacity-0 group-hover:opacity-100 transition-opacity">Warisan Sejarah</span>
+            </div>
+        </a>
+
+        <!-- 3. Artikel -->
+        <a href="#journal" class="group relative h-48 overflow-hidden border-r border-brand-gold/10 block">
+            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1586769852044-692d6e3703f0?q=80&w=600')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"></div>
+            <div class="absolute inset-0 bg-brand-dark/80 group-hover:bg-brand-dark/60 transition-colors duration-500"></div>
+            <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-4">
+                <i data-lucide="newspaper" class="w-8 h-8 text-brand-gold mb-3 group-hover:-translate-y-2 transition-transform"></i>
+                <h3 class="font-display text-white text-lg tracking-widest group-hover:text-brand-gold transition-colors">ARTIKEL</h3>
+                <span class="text-[10px] text-gray-400 uppercase tracking-[0.2em] mt-2 opacity-0 group-hover:opacity-100 transition-opacity">Berita & Edukasi</span>
+            </div>
+        </a>
+
+        <!-- 4. Contact Us -->
+        <a href="#contact" class="group relative h-48 overflow-hidden block">
+            <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=600')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"></div>
+            <div class="absolute inset-0 bg-brand-dark/80 group-hover:bg-brand-dark/60 transition-colors duration-500"></div>
+            <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-4">
+                <i data-lucide="mail-open" class="w-8 h-8 text-brand-gold mb-3 group-hover:-translate-y-2 transition-transform"></i>
+                <h3 class="font-display text-white text-lg tracking-widest group-hover:text-brand-gold transition-colors">HUBUNGI KAMI</h3>
+                <span class="text-[10px] text-gray-400 uppercase tracking-[0.2em] mt-2 opacity-0 group-hover:opacity-100 transition-opacity">Bermitra Bersama</span>
+            </div>
+        </a>
+    </section>
+
+    <!-- The Story / Heritage (Tentang Kami) -->
+    <section id="heritage" class="py-32 bg-brand-dark relative scroll-mt-20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row gap-16 items-center">
+                <div class="md:w-1/2 relative">
+                    <div class="border border-brand-gold/30 p-4 relative">
+                        <img src="https://images.unsplash.com/photo-1626818165780-255d6445b290?q=80&w=800&auto=format&fit=crop" alt="Cigar Rolling" class="w-full grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl sepia-[.25]">
+                        <div class="absolute -top-3 -left-3 w-16 h-16 border-t-2 border-l-2 border-brand-gold"></div>
+                        <div class="absolute -bottom-3 -right-3 w-16 h-16 border-b-2 border-r-2 border-brand-gold"></div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 text-left">
+                    <span class="text-brand-gold font-display text-xs tracking-[0.3em] uppercase block mb-4">Sejak Abad ke-19</span>
+                    <h2 class="font-serif text-4xl md:text-5xl text-white mb-8 leading-tight">
+                        Kebangkitan Sang <br> <span class="italic text-brand-gold">Legenda Deli</span>
+                    </h2>
+                    <p class="text-gray-300 mb-6 leading-relaxed font-light">
+                        Tembakau Deli bukan sekadar tanaman, ia adalah sejarah. Dikenal dunia sejak 1863 karena elastisitas dan aromanya yang tak tertandingi, daun ini menjadi pembungkus cerutu terbaik di Eropa.
+                    </p>
+                    <p class="text-gray-300 mb-8 leading-relaxed font-light">
+                        Kini, di bawah naungan <strong>PT Perkebunan Nusantara I (Regional 1)</strong>, kami mentransformasi warisan ini menjadi <em>lifestyle brand</em>. Cerutu Deli Nusantara memadukan Tembakau Deli asli dengan racikan nusantara terbaik, dilinting tangan oleh artisan berpengalaman.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="h-[1px] w-12 bg-brand-gold"></div>
+                        <span class="font-display text-white tracking-widest text-sm">PTPN I REGIONAL 1</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Collection (Produk) -->
+    <section id="collection" class="py-32 bg-[#122A26] relative scroll-mt-20">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-full bg-gradient-to-b from-transparent via-brand-gold/20 to-transparent"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-20">
+                <h2 class="font-serif text-4xl md:text-5xl text-white mb-4">The Masterpiece Collection</h2>
+                <p class="text-brand-gold font-sans uppercase tracking-[0.2em] text-xs">Hand-Rolled Perfection</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Product 1: Helvetia Series I -->
+                <div class="group bg-brand-dark p-8 border border-white/5 hover:border-brand-gold/50 transition-all duration-500 relative overflow-hidden shadow-lg">
+                    <div class="absolute top-4 right-4 text-brand-gold/10 font-display text-6xl font-bold -z-0 group-hover:text-brand-gold/20 transition-colors">I</div>
+                    <div class="relative z-10 flex flex-col h-full">
+                        <div class="h-64 mb-8 bg-gradient-to-b from-[#0F2622] to-brand-dark flex items-center justify-center p-4">
+                            <img src="https://images.unsplash.com/photo-1521302392473-b34cb9413247?q=80&w=600&auto=format&fit=crop" class="max-h-full object-contain drop-shadow-2xl opacity-90 group-hover:scale-105 transition-transform duration-500" alt="Helvetia Series I">
+                        </div>
+                        <h3 class="font-display text-2xl text-white mb-2">Helvetia Series I</h3>
+                        <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                            Keseimbangan sempurna antara kekuatan dan kehalusan. Menampilkan karakter klasik Tembakau Deli dengan *finish* yang elegan.
+                        </p>
+                        <div class="mt-auto border-t border-white/10 pt-6 flex justify-between items-center">
+                            <span class="text-brand-gold text-xs tracking-widest uppercase">Robusto / Corona</span>
+                            <button class="text-white text-xs uppercase tracking-widest hover:text-brand-gold transition-colors" href="products.html">Detail Produk</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2: Helvetia Series II -->
+                <div class="group bg-brand-dark p-8 border border-white/5 hover:border-brand-gold/50 transition-all duration-500 relative overflow-hidden shadow-lg">
+                    <div class="absolute top-4 right-4 text-brand-gold/10 font-display text-6xl font-bold -z-0 group-hover:text-brand-gold/20 transition-colors">II</div>
+                    <div class="relative z-10 flex flex-col h-full">
+                        <div class="h-64 mb-8 bg-gradient-to-b from-[#0F2622] to-brand-dark flex items-center justify-center p-4">
+                            <img src="https://images.unsplash.com/photo-1550955217-03cb68249764?q=80&w=600&auto=format&fit=crop" class="max-h-full object-contain drop-shadow-2xl opacity-90 group-hover:scale-105 transition-transform duration-500" alt="Helvetia Series II">
+                        </div>
+                        <h3 class="font-display text-2xl text-white mb-2">Helvetia Series II</h3>
+                        <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                            Kompleksitas rasa yang lebih dalam. *Blend* khusus untuk penikmat yang mencari sensasi *spicy* dan *earthy* khas vulkanik.
+                        </p>
+                        <div class="mt-auto border-t border-white/10 pt-6 flex justify-between items-center">
+                            <span class="text-brand-gold text-xs tracking-widest uppercase">Toro / Churchill</span>
+                            <button class="text-white text-xs uppercase tracking-widest hover:text-brand-gold transition-colors">Detail Produk</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3: Helvetia Premium -->
+                <div class="group bg-gradient-to-br from-[#1C423D] to-brand-dark p-8 border border-brand-gold/30 hover:border-brand-gold transition-all duration-500 relative overflow-hidden md:col-span-2 lg:col-span-1 shadow-xl">
+                    <div class="absolute top-0 right-0 bg-brand-gold text-brand-dark text-[10px] font-bold px-3 py-1 uppercase tracking-widest">Flagship</div>
+                    <div class="relative z-10 flex flex-col h-full">
+                        <div class="h-64 mb-8 flex items-center justify-center p-4">
+                            <img src="https://plus.unsplash.com/premium_photo-1661331778931-15b706c36199?q=80&w=600&auto=format&fit=crop" class="max-h-full object-contain drop-shadow-2xl group-hover:rotate-1 transition-transform duration-500" alt="Helvetia Premium">
+                        </div>
+                        <h3 class="font-display text-3xl text-brand-gold mb-2">Helvetia Premium</h3>
+                        <p class="text-gray-300 text-sm mb-6 leading-relaxed">
+                            Puncak dari kemewahan. Menggunakan daun wrapper Deli pilihan *Grade A* yang diperam khusus. Simbol status dan citarasa tinggi.
+                        </p>
+                        <div class="mt-auto flex justify-between items-center">
+                            <span class="text-white text-xs tracking-widest uppercase">Limited Release</span>
+                            <button class="px-6 py-2 border border-brand-gold/50 text-brand-gold hover:bg-brand-gold hover:text-brand-dark transition-all text-xs uppercase tracking-widest">Pesan Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4: Saentis -->
+                <div class="group bg-brand-dark p-8 border border-white/5 hover:border-brand-gold/50 transition-all duration-500 relative overflow-hidden md:col-span-2 lg:col-span-1 shadow-lg">
+                    <div class="relative z-10 flex flex-col h-full">
+                        <div class="h-64 mb-8 bg-gradient-to-b from-[#0F2622] to-brand-dark flex items-center justify-center p-4">
+                            <img src="https://images.unsplash.com/photo-1629821817540-c3d32d0f3984?q=80&w=600&auto=format&fit=crop" class="max-h-full object-contain drop-shadow-2xl opacity-90 group-hover:scale-105 transition-transform duration-500" alt="Saentis">
+                        </div>
+                        <h3 class="font-display text-2xl text-white mb-2">Saentis</h3>
+                        <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                            Sebuah penghormatan pada perkebunan Saentis yang bersejarah. Karakter rasa yang autentik, *smooth*, dan ideal untuk momen kontemplatif.
+                        </p>
+                        <div class="mt-auto border-t border-white/10 pt-6 flex justify-between items-center">
+                            <span class="text-brand-gold text-xs tracking-widest uppercase">Classic Blend</span>
+                            <button class="text-white text-xs uppercase tracking-widest hover:text-brand-gold transition-colors">Detail Produk</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience / USP -->
+    <section id="experience" class="py-32 bg-[#F7F5F0] relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div class="space-y-12">
+                    <div>
+                        <h4 class="font-display text-brand-gold text-xl mb-2 font-bold">01.</h4>
+                        <h3 class="font-serif text-3xl text-brand-dark mb-4">Authentic Material</h3>
+                        <p class="text-gray-700 leading-relaxed font-light">
+                            Menggunakan 100% Tembakau Deli asli untuk wrapper, yang dikenal sebagai salah satu yang terbaik di dunia, dipadukan dengan filler tembakau nusantara pilihan.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="font-display text-brand-gold text-xl mb-2 font-bold">02.</h4>
+                        <h3 class="font-serif text-3xl text-brand-dark mb-4">Hand-Rolled Mastery</h3>
+                        <p class="text-gray-700 leading-relaxed font-light">
+                            Setiap batang dikerjakan oleh *torcedor* (penggulung cerutu) terlatih, memastikan kepadatan yang pas dan *draw* yang sempurna.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="font-display text-brand-gold text-xl mb-2 font-bold">03.</h4>
+                        <h3 class="font-serif text-3xl text-brand-dark mb-4">Collectible Luxury</h3>
+                        <p class="text-gray-700 leading-relaxed font-light">
+                            Desain kemasan dan *cigar band* yang eksklusif, diciptakan bukan hanya untuk dinikmati isinya, tapi untuk dikoleksi keindahannya.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="relative h-full min-h-[500px]">
+                    <div class="absolute inset-0 bg-brand-dark p-8 md:p-12 flex flex-col justify-center items-center text-center shadow-2xl">
+                        <i data-lucide="crown" class="w-12 h-12 text-brand-gold mb-6"></i>
+                        <blockquote class="font-serif text-2xl md:text-3xl text-white italic mb-8 leading-normal">
+                            "A cigar is not just a smoke. It is a ritual, a moment of pause, a celebration of life."
+                        </blockquote>
+                        <div class="w-16 h-[1px] bg-brand-gold mb-4"></div>
+                        <p class="text-brand-gold text-xs uppercase tracking-[0.2em]">Deli Nusantara Philosophy</p>
+                    </div>
+                    <div class="absolute top-4 right-4 w-20 h-20 border-t-2 border-r-2 border-brand-gold opacity-50"></div>
+                    <div class="absolute bottom-4 left-4 w-20 h-20 border-b-2 border-l-2 border-brand-gold opacity-50"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: Artikel / The Journal -->
+    <section id="journal" class="py-32 bg-brand-dark-deep relative border-t border-brand-gold/10 scroll-mt-20">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-end mb-16">
+                <div>
+                    <span class="text-brand-gold font-display text-xs tracking-[0.3em] uppercase block mb-2">Berita & Edukasi</span>
+                    <h2 class="font-serif text-4xl text-white">Deli Nusantara Journal</h2>
+                </div>
+                <a href="#" class="hidden md:flex items-center text-xs text-brand-gold uppercase tracking-widest hover:text-white transition-colors">
+                    Lihat Semua Artikel <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Article 1 -->
+                <article class="group cursor-pointer">
+                    <div class="overflow-hidden h-64 mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1541689592655-f5f52825a3b8?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100">
+                        <div class="absolute top-4 left-4 bg-brand-gold text-brand-dark text-[10px] font-bold px-3 py-1 uppercase tracking-widest">Sejarah</div>
+                    </div>
+                    <span class="text-gray-500 text-xs block mb-2">12 Agustus 2024</span>
+                    <h3 class="font-serif text-xl text-white mb-3 group-hover:text-brand-gold transition-colors">Mengapa Tanah Deli Sangat Istimewa?</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-2">
+                        Menelusuri jejak geologis tanah vulkanik Sumatera Utara yang memberikan karakteristik unik pada daun tembakau Deli.
+                    </p>
+                    <span class="text-brand-gold text-xs uppercase tracking-widest border-b border-transparent group-hover:border-brand-gold transition-all">Baca Selengkapnya</span>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="group cursor-pointer">
+                    <div class="overflow-hidden h-64 mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100">
+                        <div class="absolute top-4 left-4 bg-brand-gold text-brand-dark text-[10px] font-bold px-3 py-1 uppercase tracking-widest">Lifestyle</div>
+                    </div>
+                    <span class="text-gray-500 text-xs block mb-2">05 September 2024</span>
+                    <h3 class="font-serif text-xl text-white mb-3 group-hover:text-brand-gold transition-colors">Etika Menikmati Cerutu di Lounge</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-2">
+                        Panduan lengkap bagi pemula dan aficionado tentang cara memotong, menyalakan, dan menikmati cerutu dengan elegan.
+                    </p>
+                    <span class="text-brand-gold text-xs uppercase tracking-widest border-b border-transparent group-hover:border-brand-gold transition-all">Baca Selengkapnya</span>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="group cursor-pointer">
+                    <div class="overflow-hidden h-64 mb-6 relative">
+                        <img src="https://images.unsplash.com/photo-1631553127870-8588f0e5c24d?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100">
+                        <div class="absolute top-4 left-4 bg-brand-gold text-brand-dark text-[10px] font-bold px-3 py-1 uppercase tracking-widest">Event</div>
+                    </div>
+                    <span class="text-gray-500 text-xs block mb-2">20 September 2024</span>
+                    <h3 class="font-serif text-xl text-white mb-3 group-hover:text-brand-gold transition-colors">Peluncuran Helvetia Premium Series</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-4 line-clamp-2">
+                        Deli Nusantara dengan bangga mengumumkan rilis terbatas dari seri cerutu termewah tahun ini.
+                    </p>
+                    <span class="text-brand-gold text-xs uppercase tracking-widest border-b border-transparent group-hover:border-brand-gold transition-all">Baca Selengkapnya</span>
+                </article>
+            </div>
+            
+            <div class="mt-12 text-center md:hidden">
+                <a href="#" class="inline-block px-6 py-3 border border-brand-gold text-brand-gold text-xs uppercase tracking-widest">Lihat Semua Artikel</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact (Hubungi Kami) -->
+    <footer id="contact" class="bg-brand-dark pt-24 pb-12 border-t border-brand-gold/20 scroll-mt-20">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mb-20 text-center md:text-left">
+                <!-- Brand -->
+                <div>
+                    <span class="font-display text-2xl text-white block mb-2">DELI NUSANTARA</span>
+                    <span class="text-[10px] text-brand-gold uppercase tracking-[0.2em] block mb-8">Authentic Marvelous Taste Reborn</span>
+                    
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Sebuah entitas bisnis dari PT Perkebunan Nusantara I (Regional 1), menghadirkan warisan luhur tembakau Sumatera ke pasar global.
+                    </p>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white font-display text-sm tracking-widest uppercase mb-8">Private Clients</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm font-light">
+                        <li class="flex items-start md:justify-start justify-center gap-3">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-brand-gold shrink-0 mt-1"></i>
+                            <span>Kantor Direksi PTPN I Regional 1<br>Jl. Tembakau Deli No. 1, Medan</span>
+                        </li>
+                        <li class="flex items-center md:justify-start justify-center gap-3">
+                            <i data-lucide="mail" class="w-4 h-4 text-brand-gold shrink-0"></i>
+                            <a href="mailto:official@delinusantara.com" class="hover:text-white transition-colors">official@delinusantara.com</a>
+                        </li>
+                        <li class="flex items-center md:justify-start justify-center gap-3">
+                            <i data-lucide="phone" class="w-4 h-4 text-brand-gold shrink-0"></i>
+                            <span>+62 61 1234 5678 (Corporate)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Inquiries -->
+                <div>
+                    <h4 class="text-white font-display text-sm tracking-widest uppercase mb-8">Inquiries</h4>
+                    <p class="text-gray-400 text-xs mb-6">Untuk pemesanan diplomatik, ekspor, atau kolektor pribadi.</p>
+                    <form class="space-y-4" onsubmit="event.preventDefault(); alert('Terima kasih. Concierge kami akan menghubungi Anda.');">
+                        <input type="email" placeholder="Email Address" class="w-full bg-brand-dark border border-brand-gold/20 px-4 py-3 text-white text-sm focus:outline-none focus:border-brand-gold transition-colors placeholder:text-gray-500">
+                        <button type="submit" class="w-full bg-brand-gold text-brand-dark px-4 py-3 text-xs font-bold uppercase tracking-widest hover:bg-white transition-colors">
+                            Request Catalogue
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-500 uppercase tracking-widest">
+                <p>&copy; 2024 Deli Nusantara Tobacco. PT Perkebunan Nusantara I.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-brand-gold transition-colors">Privacy</a>
+                    <a href="#" class="hover:text-brand-gold transition-colors">Terms</a>
+                    <a href="#" class="hover:text-brand-gold transition-colors">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-[#15322E]/95', 'shadow-lg', 'py-2');
+                navbar.classList.remove('bg-[#15322E]/90', 'py-4');
+            } else {
+                navbar.classList.remove('bg-[#15322E]/95', 'shadow-lg', 'py-2');
+                navbar.classList.add('bg-[#15322E]/90', 'py-4');
+            }
+        });
+    </script>
+</body>
+</html>

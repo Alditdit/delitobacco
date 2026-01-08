@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami | Deli Nusantara Tobacco</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#15322E',     
+                        'brand-gold': '#E2C772',     
+                        'brand-dark-deep': '#0F2622', 
+                        'brand-gold-light': '#F1DFA8', 
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        display: ['"Cinzel"', 'serif'], 
+                        sans: ['"Lato"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .about-header {
+            background-image: linear-gradient(to bottom, rgba(21, 50, 46, 0.85), rgba(15, 38, 34, 1)), url('https://images.unsplash.com/photo-1598512140889-38b438250495?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .vision-card {
+            background: linear-gradient(145deg, #1a3a35, #0F2622);
+        }
+
+        /* Timeline connector line */
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 2rem;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #E2C772;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #15322E; }
+        ::-webkit-scrollbar-thumb { background: #E2C772; border-radius: 4px; }
+    </style>
+</head>
+<body class="font-sans text-gray-300 bg-brand-dark-deep antialiased selection:bg-brand-gold selection:text-brand-dark">
+
+     <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 bg-brand-dark/90 backdrop-blur-md border-b border-brand-gold/10 py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 border border-brand-gold flex items-center justify-center rounded-sm bg-brand-dark group-hover:bg-brand-gold transition-colors duration-500">
+                    <span class="font-display font-bold text-brand-gold text-xl group-hover:text-brand-dark transition-colors duration-500">D</span>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display text-lg font-bold text-white tracking-widest leading-none">DELI NUSANTARA</span>
+                    <span class="text-[9px] tracking-[0.2em] text-brand-gold uppercase mt-1">By PTPN I Regional 1</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu (Updated Links) -->
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="index.html" class="text-xs font-bold text-gray-300 hover:text-brand-gold transition-colors uppercase tracking-[0.15em]">Beranda</a>
+                <a href="products.html" class="text-xs font-bold text-gray-300 hover:text-brand-gold transition-colors uppercase tracking-[0.15em]">Produk</a>
+                <a href="tentangkami.html" class="text-xs font-bold text-gray-300 hover:text-brand-gold transition-colors uppercase tracking-[0.15em]">Tentang Kami</a>
+                <a href="artikel.html" class="text-xs font-bold text-gray-300 hover:text-brand-gold transition-colors uppercase tracking-[0.15em]">Artikel</a>
+                <a href="contact.html" class="px-6 py-2 border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-brand-dark transition-all duration-500 text-xs font-bold uppercase tracking-widest">
+                    Hubungi Kami
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden focus:outline-none text-brand-gold">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-brand-dark border-b border-brand-gold/20 shadow-2xl md:hidden flex flex-col items-center py-8 space-y-6">
+              <a href="index.html" class="text-white hover:text-brand-gold font-display uppercase tracking-widest">Beranda</a>
+            <a href="products.html" class="text-white hover:text-brand-gold font-display uppercase tracking-widest">Produk</a>
+            <a href="tentangkami.html"text-white hover:text-brand-gold font-display uppercase tracking-widest">Tentang Kami</a>
+            <a href="artikel.html" class="text-white hover:text-brand-gold font-display uppercase tracking-widest">Artikel</a>
+            <a href="contact.html" class="text-brand-gold font-bold uppercase tracking-widest">Hubungi Kami</a>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="about-header h-[60vh] flex items-center justify-center relative">
+        <div class="text-center relative z-10 px-6 mt-16">
+            <span class="text-brand-gold font-display text-xs tracking-[0.4em] uppercase block mb-4">Profil Korporasi</span>
+            <h1 class="font-serif text-5xl md:text-6xl text-white mb-6">Warisan & Dedikasi</h1>
+            <p class="text-gray-300 max-w-2xl mx-auto font-light leading-relaxed">
+                Membangun negeri dari perkebunan hingga pasar global, menghidupkan kembali legenda Tembakau Deli.
+            </p>
+        </div>
+    </header>
+
+    <main>
+        <!-- Section 1: Profil PTPN I -->
+        <section class="py-24 bg-brand-dark-deep">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div class="order-2 lg:order-1">
+                        <h2 class="font-serif text-3xl md:text-4xl text-white mb-6">PTPN I: Pewaris Sejarah, Pembangun Negeri</h2>
+                        <div class="w-24 h-1 bg-brand-gold mb-8"></div>
+                        <p class="text-gray-400 mb-6 leading-relaxed font-light text-justify">
+                            Di balik hamparan hijau perkebunan yang membentang dari Aceh dan sekitarnya, berdirilah <strong>PT Perkebunan Nusantara I (PTPN I)</strong> sebuah nama yang tak hanya mewakili komoditas perkebunan, tetapi juga semangat panjang membangun negeri dari perkebunan hingga pasar global.
+                        </p>
+                        <p class="text-gray-400 mb-6 leading-relaxed font-light text-justify">
+                            PTPN I bukan sekadar perusahaan agribisnis. Ia adalah pewaris sejarah panjang pengelolaan tanah subur Indonesia, yang kini fokus pada komoditas strategis: karet, teh, kopi, kakao, tembakau serta komoditas lainnya.
+                        </p>
+                    </div>
+                    <div class="order-1 lg:order-2 relative">
+                        <div class="absolute -inset-4 border border-brand-gold/20 rounded-sm"></div>
+                        <img src="https://images.unsplash.com/photo-1594315270275-58000490df1b?q=80&w=800&auto=format&fit=crop" class="w-full h-auto rounded-sm shadow-2xl relative z-10" alt="Perkebunan PTPN">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Transformasi & Regional 1 -->
+        <section class="py-24 bg-brand-dark border-y border-brand-gold/10">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center mb-16">
+                    <span class="text-brand-gold font-display text-xs tracking-[0.2em] uppercase">Transformasi 2023</span>
+                    <h2 class="font-serif text-3xl md:text-4xl text-white mt-4 mb-8">Era Baru PTPN I Regional 1</h2>
+                    <p class="text-gray-400 leading-relaxed font-light mb-8">
+                        Sejak tahun 2023, sembilan PTPN bertransformasi menjadi Sub Holding PTPN 1. <strong>PTPN I Regional 1</strong> (dulunya PTPN II) hadir sebagai Perusahaan Pengelola Aset Perkebunan Unggul, mencakup optimalisasi aset, diversifikasi usaha, serta <em>green business</em> yang memberikan nilai tambah.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="p-8 bg-brand-dark-deep rounded-sm border border-brand-gold/10 hover:border-brand-gold/30 transition-colors">
+                        <i data-lucide="leaf" class="w-10 h-10 text-brand-gold mx-auto mb-4"></i>
+                        <h3 class="font-display text-lg text-white mb-2">Kelapa Sawit</h3>
+                        <p class="text-sm text-gray-500">Dikelola melalui skema Kerja Sama Operasional (KSO) dengan PTPN IV.</p>
+                    </div>
+                    <div class="p-8 bg-brand-dark-deep rounded-sm border border-brand-gold/10 hover:border-brand-gold/30 transition-colors">
+                        <i data-lucide="candy-cane" class="w-10 h-10 text-brand-gold mx-auto mb-4"></i> <!-- Icon approximation for Sugar cane -->
+                        <h3 class="font-display text-lg text-white mb-2">Tebu</h3>
+                        <p class="text-sm text-gray-500">Dikelola melalui skema KSO dengan PT Sinergi Gula Nusantara (SGN).</p>
+                    </div>
+                    <div class="p-8 bg-gradient-to-br from-brand-gold/20 to-brand-dark-deep rounded-sm border border-brand-gold hover:shadow-[0_0_20px_rgba(226,199,114,0.2)] transition-all scale-105">
+                        <i data-lucide="cigar" class="w-10 h-10 text-brand-gold mx-auto mb-4"></i> <!-- Custom icon placeholder -->
+                        <h3 class="font-display text-lg text-brand-gold mb-2">Tembakau Deli</h3>
+                        <p class="text-sm text-gray-300">Fokus utama Regional 1. Mengembalikan kejayaan tembakau pembungkus cerutu terbaik dunia.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: The Product (Deli Nusantara Tobacco) -->
+        <section class="py-24 bg-[#122A26] relative overflow-hidden">
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="flex flex-col md:flex-row gap-16 items-center">
+                    <div class="md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1629821817540-c3d32d0f3984?q=80&w=800&auto=format&fit=crop" alt="Cerutu Deli Nusantara" class="rounded-sm shadow-2xl border-l-4 border-brand-gold">
+                    </div>
+                    <div class="md:w-1/2">
+                        <h2 class="font-serif text-3xl md:text-4xl text-white mb-6">Lahirnya Sebuah Mahakarya</h2>
+                        <p class="text-gray-400 mb-6 leading-relaxed font-light text-justify">
+                            Dari hasil Tembakau yang dibudidayakan oleh PTPN I Regional 1, lahirlah <strong>Cerutu Deli Nusantara Tobacco</strong>. Dibuat dari Tembakau Deli yang legendaris yang dipadukan dengan tembakau nusantara lainnya, cerutu ini menghadirkan cita rasa khas tropis yang halus dan eksklusif.
+                        </p>
+                        <p class="text-gray-400 leading-relaxed font-light text-justify">
+                            Dengan teknik pengolahan tradisional yang dijaga ketat, Deli Nusantara Tobacco menjadi simbol warisan budaya yang hidup, menghubungkan masa lalu yang gemilang dengan gaya hidup modern yang elegan.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Process Timeline -->
+        <section class="py-24 bg-brand-dark-deep">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="font-serif text-3xl text-white">Dari Kebun Hingga Menjadi Cerutu Premium</h2>
+                    <p class="text-gray-500 text-sm mt-2 uppercase tracking-widest">Excellence in Every Step</p>
+                </div>
+
+                <div class="relative hidden md:block timeline-line mb-12"></div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center relative z-10">
+                    <!-- Step 1 -->
+                    <div class="group">
+                        <div class="w-16 h-16 bg-brand-dark border-2 border-brand-gold rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-brand-gold group-hover:text-brand-dark transition-colors text-brand-gold shadow-lg">
+                            <i data-lucide="sprout" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="font-display text-white text-lg mb-2">Budidaya</h3>
+                        <p class="text-sm text-gray-500">Perkebunan PTPN dengan tanah vulkanik terbaik.</p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="group">
+                        <div class="w-16 h-16 bg-brand-dark border-2 border-brand-gold rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-brand-gold group-hover:text-brand-dark transition-colors text-brand-gold shadow-lg">
+                            <i data-lucide="search-check" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="font-display text-white text-lg mb-2">Sortir</h3>
+                        <p class="text-sm text-gray-500">Seleksi daun terbaik secara manual dan ketat.</p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="group">
+                        <div class="w-16 h-16 bg-brand-dark border-2 border-brand-gold rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-brand-gold group-hover:text-brand-dark transition-colors text-brand-gold shadow-lg">
+                            <i data-lucide="hammer" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="font-display text-white text-lg mb-2">Produksi</h3>
+                        <p class="text-sm text-gray-500">Handcraft oleh artisan cerutu berpengalaman.</p>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="group">
+                        <div class="w-16 h-16 bg-brand-dark border-2 border-brand-gold rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-brand-gold group-hover:text-brand-dark transition-colors text-brand-gold shadow-lg">
+                            <i data-lucide="gift" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="font-display text-white text-lg mb-2">Produk</h3>
+                        <p class="text-sm text-gray-500">Cerutu Premium siap dinikmati dunia.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Visi & Misi -->
+        <section class="py-24 bg-brand-dark border-t border-brand-gold/10">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Visi -->
+                    <div class="vision-card p-10 rounded-sm border border-brand-gold/20 text-center flex flex-col justify-center">
+                        <div class="mb-6">
+                            <i data-lucide="eye" class="w-12 h-12 text-brand-gold mx-auto"></i>
+                        </div>
+                        <h2 class="font-display text-2xl text-white mb-6 uppercase tracking-widest border-b border-brand-gold/20 pb-4 inline-block mx-auto">Visi</h2>
+                        <p class="font-serif text-xl md:text-2xl text-brand-gold leading-relaxed italic">
+                            "Menjadi pusat pelestarian dan pengembangan warisan sejarah tembakau Deli sebagai ikon budaya, ekonomi, dan identitas Sumatra Utara yang diakui dunia."
+                        </p>
+                    </div>
+
+                    <!-- Misi -->
+                    <div class="bg-brand-dark-deep p-10 rounded-sm border border-white/5">
+                        <h2 class="font-display text-2xl text-white mb-8 uppercase tracking-widest border-b border-brand-gold/20 pb-4">Misi Kami</h2>
+                        <ul class="space-y-6">
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 w-2 h-2 bg-brand-gold rotate-45 shrink-0"></div>
+                                <p class="text-gray-300 font-light">Memperkenalkan Tembakau Deli ke tingkat nasional dan internasional sebagai produk warisan premium.</p>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 w-2 h-2 bg-brand-gold rotate-45 shrink-0"></div>
+                                <p class="text-gray-300 font-light">Menjadikan tembakau Deli sebagai daya tarik wisata sejarah dan budaya di Medan dan sekitarnya.</p>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 w-2 h-2 bg-brand-gold rotate-45 shrink-0"></div>
+                                <p class="text-gray-300 font-light">Mendorong pengelolaan perkebunan tembakau yang berkelanjutan dan ramah lingkungan.</p>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="mt-1 w-2 h-2 bg-brand-gold rotate-45 shrink-0"></div>
+                                <p class="text-gray-300 font-light">Melestarikan sejarah, arsip, dan situs peninggalan perkebunan tembakau Deli.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark pt-12 pb-8 border-t border-brand-gold/20">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center gap-6 mb-8 text-gray-500">
+                <a href="#" class="hover:text-brand-gold"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                <a href="#" class="hover:text-brand-gold"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+                <a href="#" class="hover:text-brand-gold"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+            </div>
+            <p class="text-[10px] text-gray-500 uppercase tracking-widest mb-2">&copy; 2024 Deli Nusantara Tobacco. PT Perkebunan Nusantara I.</p>
+            <p class="text-[10px] text-gray-600">All rights reserved. 18+ Only.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
